@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Parsapanahpoor_HW
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
 
             while (true)
@@ -101,7 +103,41 @@ namespace Parsapanahpoor_HW
                 }
                 else if (Entekhab == 4)
                 {
-
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("                                       Here we moved in end of your list numbers");
+                    Console.ResetColor();
+                    int Counter = 0;
+                    Console.WriteLine("How many number do you want use it? ");
+                    Counter = Convert.ToInt32(Console.ReadLine());
+                    int[] Zemove = new int[Counter];
+                    List<int> UZlist = new List<int>();
+                    int[] Zmove = new int[Counter];
+                    for (int i = 0; i < Counter; i++)
+                    {
+                        Console.WriteLine("Tell me your number : ");
+                        int temp = Convert.ToInt32(Console.ReadLine());
+                        if (temp != 0)
+                        {
+                            Zemove[i] = temp;
+                        }
+                    }
+                    foreach (int Ulist in Zemove)
+                    {
+                        if (Ulist != 0)
+                        {
+                            UZlist.Add(Ulist);
+                        }
+                    }
+                    for (int i = 0; i < UZlist.Count; i++)
+                    {
+                        Zmove[i] = UZlist[i];
+                    }
+                    foreach (int Ulist in Zmove)
+                    {
+                        Console.Write(Ulist+ ",");
+                        
+                    }
+                    Console.WriteLine();
                 }
                 else if (Entekhab == 5)
                 {
@@ -110,7 +146,7 @@ namespace Parsapanahpoor_HW
                 else
                     Console.WriteLine("SORRY ,I cant understand what do you want");
             }
-            Console.ReadKey();
+
         }
     }
 }
